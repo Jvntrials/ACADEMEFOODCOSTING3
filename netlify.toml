@@ -1,0 +1,17 @@
+# Netlify configuration for a no-build-step Single-Page Application.
+
+# The [build] block tells Netlify how to deploy the site.
+[build]
+  # For this project, there's no build command needed since Babel compiles in the browser.
+  command = ""
+  # The "publish" directory is the root, where your index.html is located.
+  publish = "."
+
+# The [[redirects]] block handles routing. This is the crucial part for SPAs.
+[[redirects]]
+  # Redirect all paths...
+  from = "/*"
+  # ...to the main index.html file.
+  to = "/index.html"
+  # Serve it with a 200 status (OK) to let the client-side router handle the URL.
+  status = 200
